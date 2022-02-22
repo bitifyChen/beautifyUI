@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .pic-mask {
+      overflow: hidden;
+      animation: mask 5s linear infinite;
+      filter: drop-shadow(0 10px 10px rgb(0 0 0 /0.3));
+    }
+    .pic-mask.open {
+      animation: mask-open 5s linear forwards;
+    }
+    .pic-mask img {
+      vertical-align: middle;
+    }
+
+    @keyframes mask {
+      0% {
+        border-radius: 23% 77% 22% 78% / 62% 47% 53% 38%;
+      }
+      16% {
+        border-radius: 41% 59% 32% 68% / 50% 47% 53% 50%;
+      }
+      32% {
+        border-radius: 51% 49% 48% 52% / 38% 58% 42% 62%;
+      }
+      50% {
+        border-radius: 61% 39% 65% 35% / 32% 71% 29% 68%;
+      }
+      to {
+        border-radius: 23% 77% 22% 78% / 62% 47% 53% 38%;
+      }
+    }
+    
+  </style>
+  <body>
+    <div class="pic-mask" onclick="maskOpen()">
+      <img src="https://picsum.photos/id/684/600/600" alt="" />
+    </div>
+    <script>
+      function maskOpen() {
+        const mask = document.querySelector(".pic-mask");
+        mask.classList.add("open");
+      }
+    </script>
+  </body>
+</html>

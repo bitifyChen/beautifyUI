@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .section {
+        background-color: rgb(90, 86, 86);
+        min-height: 30vh;
+      }
+
+      /*---cursor-get---*/
+      .cursor-get {
+        position: relative;
+        cursor: pointer;
+      }
+
+      .cursor-get > .cursor {
+        position: absolute;
+        opacity: 0;
+        cursor: inherit;
+        z-index: 1;
+      }
+
+      .cursor-get > .cursor {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section cursor-get">
+      <div class="container"></div>
+      <div class="cursor">
+        123
+      </div>
+    </section>
+
+    <section class="section cursor-get">
+      <div class="container"></div>
+      <div class="cursor">
+       456
+      </div>
+    </section>
+  </body>
+  <script>
+    /*獲取滑鼠座標*/
+    function getMousePos(e) {
+      return {
+        x: e.clientX + document.body.scrollLeft,
+        y: e.clientY + document.body.scrollTop,
+      };
+    }
+    const mouseHandlers = document.querySelectorAll(".cursor-get");
+    mouseHandlers.forEach((mouseHandler) => {
+      //判斷進入與離開
+      mouseHandler.addEventListener('mousemove',(e) => {
+        var mousecoords = getMousePos(e);
+        /*取得此區塊距離頂部與左側*/
+        const cursorGetX = mouseHandler.getBoundingClientRect().left;
+        const cursorGetY = mouseHandler.getBoundingClientRect().top;
+
+        /*取得此內容大小*/
+        const cursorContentW = mouseHandler.querySelector(".cursor").getBoundingClientRect().width;
+        const cursorContentH = mouseHandler.querySelector(".cursor").getBoundingClientRect().height;
+
+        mouseHandler.querySelector(".cursor").style.transform = `translateX(${mousecoords.x - cursorGetX }px) translateY(${mousecoords.y - cursorGetY }px)`;
+        // mouseHandler.querySelector(".cursor").style.transform = `translateX(${mousecoords.x - cursorGetX - cursorContentW / 2}px) translateY(${mousecoords.y - cursorGetY - cursorContentH / 2}px)`;
+
+      });
+
+      mouseHandler.addEventListener('mouseleave',(e) => {
+        mouseHandler.querySelector(".cursor").style.transform = 'none';
+      });
+
+    });
+      
+    
+    
+  </script>
+</html>
