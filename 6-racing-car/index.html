@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://rsl.tw/kart15th -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .section-banner {
+            height: 100vh;
+            width: 100vw;
+            overflow-x: hidden;
+            min-height: 800px;
+            background-color: rgb(15, 4, 46);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-banner .title {
+            display: flex;
+            padding-top: 30px;
+        }
+
+        .section-banner .title img {
+            width: 100%;
+        }
+
+        .section-banner .logo {
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: -100px;
+
+        }
+
+        .section-banner .sub-title {
+            display: flex;
+            flex-wrap: wrap;
+            width: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 100px;
+        }
+
+        .sub-title img {
+            width: 100%;
+        }
+
+        .sub-title .left {
+            width: 55%;
+        }
+
+        .sub-title .right {
+            width: 45%;
+        }
+
+        .sub-title .bottom img {
+            width: 90%;
+            margin: auto;
+            display: block;
+        }
+
+        .section-banner .cars {
+            margin-top: auto;
+        }
+
+        .cars {
+            display: flex;
+        }
+
+        .cars .left,.cars .right{
+            width: 50%;
+            position: relative;
+            height: 300px;
+        }
+
+        .cars .left::before{
+            content: '';
+            background-color: green;
+            width: 100%;
+            height: 80%;
+            position: absolute;
+     
+        }
+
+        .cars .left .tubes{
+            width: 80%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        .cars .left .light{
+            width: calc(80% + 60px);
+            left: 0;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+            opacity: .5;
+        }
+
+
+        .cars img.car {
+            width: 50%;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="section-banner">
+        <div class="title">
+            <div class="left">
+                <img src="img/slogan_left.png" alt="">
+            </div>
+            <div class="right">
+                <img src="img/slogan_right.png" alt="">
+            </div>
+        </div>
+        <div class="logo">
+            <img src="img/rsl-color-dark.svg" alt="">
+        </div>
+        <div class="sub-title">
+            <div class="left">
+                <img src="img/title-1.png" alt="">
+            </div>
+            <div class="right">
+                <img src="img/title-2.png" alt="">
+                <img src="img/title-3.png" alt="">
+            </div>
+            <div class="bottom">
+                <img src="img/subtitle.png" alt="">
+            </div>
+        </div>
+        <div class="cars">
+            <div class="left">
+                <img class="tubes" src="img/light_tubes_left.png" alt="">
+                <img class="light" src="img/lights_left.png" alt="">
+                <img class="car" src="img/bazzi.png" alt="">
+            </div>
+            <div class="right">
+                <img class="car" src="img/dao.png" alt="">
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
